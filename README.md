@@ -1,6 +1,7 @@
 # vim-brittany
 
-This is an adaption of [vim-stylishask](https://github.com/alx741/vim-stylishask).
+This is an adaption of [vim-stylishask](https://github.com/alx741/vim-stylishask) by [alx741](https://github.com/alx741).
+It's basically a search and replace.
 
 Vim-brittany integrates with [brittany](https://github.com/lspitzner/brittany) so every time
 you save a Haskell source file it gets automatically prettified.
@@ -35,5 +36,5 @@ g:brittany_on_save = 1
 *Brittany* configuration file to use (default = "" == Use default ~/.brittany/config.yaml):
 
 ```vim
-g:stylishask_config_file = "/path/to/.stylish-haskell.yaml"
+g:brittany_config_file = "/path/to/config.yaml"
 ```
