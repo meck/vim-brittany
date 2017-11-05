@@ -2,15 +2,12 @@
 
 This is an adaption of [vim-stylishask](https://github.com/alx741/vim-stylishask).
 
-Vim-brittany integrates with [brittany](http://https://github.com/lspitzner/brittany) so every time
+Vim-brittany integrates with [brittany](https://github.com/lspitzner/brittany) so every time
 you save a Haskell source file it gets automatically prettified.
 
 Simply using `:%!brittany` replaces your whole source file with an error message
 from **brittany** when you happen to have a syntax error in your code, this
 plugin manages that annoyance.
-
-*Note:* If you prefer *stylish-haskell* use
-[vim-stylishask](https://github.com/alx741/vim-stylishask) instead.
 
 ## Installation
 
