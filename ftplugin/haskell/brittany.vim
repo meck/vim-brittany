@@ -18,7 +18,7 @@ function! brittany#Brittany()
     let l:winview = winsaveview()
 
     if !executable("brittany")
-        echomsg "brittany not found in $PATH, did you installed it?
+        echomsg "brittany not found in $PATH, did you install it?
                     \ (https://github.com/lspitzner/brittany)"
         return
     endif
