@@ -14,9 +14,7 @@ function! brittany#BrittanyToggle()
 endfunction
 
 
-function! brittany#Brittany()
-    let l:winview = winsaveview()
-
+function! brittany#Brittany() range
     if !executable("brittany")
         echomsg "brittany not found in $PATH, did you install it?
                     \ (https://github.com/lspitzner/brittany)"
@@ -38,15 +36,17 @@ function! brittany#Brittany()
         endif
 
         silent! exe "undojoin"
-        silent! exe "keepjumps %!brittany" . l:config_file_opt
+
+        silent! exe "keepjumps " . a:firstline . "," . a:lastline . "!brittany" . l:config_file_opt
       endif
 
-    call winrestview(l:winview)
+    call winrestview(b:winview)
 endfunction
 
 function! brittany#BrittanyOnSave()
     if g:brittany_on_save == 1
-        call brittany#Brittany()
+        let b:winview = winsaveview()
+        exe "%call brittany#Brittany()"
     endif
 endfunction
 
@@ -57,7 +57,7 @@ augroup brittany
 augroup END
 
 
-command! Brittany exe "call brittany#Brittany()"
+command! -range=% Brittany exe "let b:winview = winsaveview() | <line1>, <line2>call brittany#Brittany()"
 command! BrittanyEnable exe "call brittany#BrittanyEnable()"
 command! BrittanyDisable exe "call brittany#BrittanyDisable()"
 command! BrittanyToggle exe "call brittany#BrittanyToggle()"
